@@ -15,7 +15,7 @@
                     elem: 'logo',
                     content: {
                         block: 'b-image',
-                        url: '//yandex.st/lego/_/X31pO5JJJKEifJ7sfvuf3mGeD_8.png'
+                        url: '/blocks/b-image/b-image__yandex.png'
                     }
                 },
                 { elem: 'text' }

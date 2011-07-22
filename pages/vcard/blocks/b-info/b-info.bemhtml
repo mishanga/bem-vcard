@@ -16,12 +16,17 @@ block b-info {
         cls: 'vcard',
         content: [
             {
-                elem: 'name',
-                tag: 'h1',
-                cls: 'fn',
-                content: 'Михаил Трошев'
+                elem: 'person',
+                content: [
+                    {
+                        elem: 'name',
+                        tag: 'h1',
+                        cls: 'fn',
+                        content: 'Михаил Трошев'
+                    },
+                    { elem: 'position', tag: 'strong', content: 'Разработчик интерфейсов' }
+                ]
             },
-            { elem: 'position', tag: 'strong', content: 'разработчик интерфейсов' },
             {
                 elem: 'address',
                 tag: 'p',
@@ -30,8 +35,8 @@ block b-info {
                     '<span class="locality">Москва</span>, ' +
                     '<span class="postal-code">119021</span><br>' +
                     '<span class="street-address">ул. Льва Толстого, д. 16</span></span><br>' +
-                    '<span class="tel"><abbr class="type" title="cell">сот.:</abbr> <span class="value">+7 (926) 226-74-29</span></span><br>' +
                     '<span class="tel"><abbr class="type" title="work">тел.:</abbr> <span class="value">+7 (495) 739-70-00</span>, доб.: 6449</span><br>' +
+                    '<span class="tel"><abbr class="type" title="fax">факс:</abbr> <span class="value">+7 (495) 739-70-70</span></span><br>' +
                     '<a class="url" href="http://www.yandex.ru/">www.yandex.ru</a>'
                 )
             },
@@ -39,7 +44,9 @@ block b-info {
                 elem: 'links',
                 tag: 'p',
                 content: (
-                    '<a class="email" href="mailto:mishanga@yandex-team.ru">mishanga@yandex-team.ru</a>'
+                    '<a class="email" href="mailto:mishanga@yandex-team.ru">mishanga@yandex-team.ru</a><br>' +
+                    '<span class="tel"><abbr class="type" title="cell">моб.:</abbr> <span class="value">+7 (926) 226-74-29</span></span><br>' +
+                    '<a class="github" href="https://github.com/mishanga">github.com/mishanga</a>'
                 )
             }
         ]
