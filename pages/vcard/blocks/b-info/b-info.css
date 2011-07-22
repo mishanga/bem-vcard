@@ -1,0 +1,75 @@
+.b-info
+{
+    width: 100%;
+    height: 298px;
+
+    border-collapse: collapse;
+}
+
+.b-info__logo
+{
+    width: 34%;
+
+    text-align: center;
+}
+
+.b-info__name
+{
+    font-size: 1.9em;
+
+    margin: 0;
+
+    font-weight: normal;
+}
+
+.b-info__position
+{
+    font-size: 0.95em;
+
+    display: block;
+
+    margin-bottom: 4em;
+
+    font-weight: normal;
+}
+
+.b-info__address
+{
+    font-size: 0.8em;
+    line-height: 1.5;
+
+    margin: 0 0 2em;
+}
+
+.b-info__address abbr
+{
+    border: none;
+}
+
+.b-info__address a
+{
+    color: #000;
+    text-decoration: none;
+}
+
+.b-info__links
+{
+    font-size: 0.8em;
+    line-height: 1.5;
+
+    margin: 0;
+}
+
+.b-info__links,
+.b-info__links a
+{
+    color: #009cff;
+    text-decoration: none;
+}
+
+.b-info__address a:hover,
+.b-info__links a:hover
+{
+    color: #f00;
+    text-decoration: underline;
+}

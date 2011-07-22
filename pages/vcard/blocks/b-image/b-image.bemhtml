@@ -1,0 +1,10 @@
+block b-image {
+
+    content: {
+        tag: 'img',
+        attrs: {
+            src: this.ctx.url
+        }
+    }
+
+}

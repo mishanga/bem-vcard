@@ -1,0 +1,17 @@
+block b-card {
+
+    content: [
+        {
+            elem: 'left',
+            content: {
+                elem: 'text',
+                content: this.ctx.content
+            }
+        },
+        { elem: 'top', content: { elem: 'arrow', content: { elem: 'shape' } } },
+        { elem: 'bottom', content: { elem: 'arrow', content: { elem: 'shape' } } }
+    ]
+
+    elem shape, tag: 'i'
+
+}
