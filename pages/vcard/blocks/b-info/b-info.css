@@ -22,7 +22,7 @@
     top: 30px;
     left: 165px;
 
-    width: 280px;
+    width: 300px;
 }
 
 .b-info__person
@@ -34,6 +34,9 @@
 .b-info__name
 {
     font-size: 25px;
+
+    position: relative;
+    left: -0.03em;
 
     margin: 0;
 
