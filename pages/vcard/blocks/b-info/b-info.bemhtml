@@ -1,18 +1,10 @@
 block b-info {
 
-    tag: 'table',
+    mix: [{ block: 'i-font', mods: { face: 'textbook-new' } }],
 
-    mix: [{ block: 'i-tbn' }],
-
-    content: {
-        tag: 'tr',
-        content: this.ctx.content
-    }
-
-    elem logo, tag: 'td'
+    content: this.ctx.content
 
     elem text {
-        tag: 'td',
         cls: 'vcard',
         content: [
             {
