@@ -1,7 +1,18 @@
+html,
+body
+{
+    height: 100%;
+}
+
 .b-page
 {
     font: 0.9em/1.3 Arial, Helvetica, sans-serif;
 
+    position: relative;
+
+    width: 100%;
+    min-width: 600px;
+    min-height: 360px;
     margin: 0;
     padding: 0;
 
