@@ -12,7 +12,7 @@
                     elem: 'logo',
                     content: {
                         block: 'b-image',
-                        url: '/blocks/b-image/b-image__yandex.png'
+                        url: 'blocks/b-image/b-image__yandex_lang_ru.png'
                     }
                 },
                 { elem: 'text' }
