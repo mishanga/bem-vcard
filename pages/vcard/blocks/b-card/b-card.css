@@ -92,6 +92,7 @@
     -webkit-transform: skew(26.3deg);
     -moz-transform: skew(26.3deg);
     -o-transform: skew(26.3deg);
+    -ms-transform: skew(26.3deg);
     transform: skew(26.3deg);
 }
 
@@ -106,6 +107,7 @@
     -webkit-transform: skew(-26.3deg);
     -moz-transform: skew(-26.3deg);
     -o-transform: skew(-26.3deg);
+    -ms-transform: skew(-26.3deg);
     transform: skew(-26.3deg);
 }
 
