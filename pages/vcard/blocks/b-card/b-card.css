@@ -5,7 +5,7 @@
     left: 50%;
 
     width: 560px;
-    height: 319px;
+    height: 320px;
     margin: -160px 0 0 -280px;
 }
 
@@ -24,7 +24,7 @@
     width: 475px;
     height: 320px;
 
-    background: #fc0;
+    background: #eee;
 }
 
 .b-card__text
@@ -34,7 +34,7 @@
     left: 10px;
 
     width: 465px;
-    height: 298px;
+    height: 300px;
 
     color: #333;
     background: #fff;
@@ -50,8 +50,10 @@
     left: 475px;
 
     width: 85px;
-    height: 160px;
+    height: 161px;
     padding: 0;
+
+    background: #eee;
 }
 
 .b-card__bottom
@@ -59,9 +61,8 @@
     z-index: 1;
     top: 100%;
 
-    margin-top: -161px;
+    margin-top: -160px;
 
-    background: #fc0;
 }
 
 .b-card__arrow

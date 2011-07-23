@@ -10,6 +10,12 @@
     left: 27px;
 }
 
+.b-info__logo .b-image
+{
+    width: 110px;
+    height: 44px;
+}
+
 .b-info__text
 {
     position: absolute;
