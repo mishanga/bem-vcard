@@ -13,7 +13,6 @@ BEM.DOM.decl({ name: 'b-card' }, {
                     (currentLink = this.setMod('current', 'yes').setMod('disabled', 'yes'));
 
                 this.on('click', function() {
-                    console.log('switch to ' + this.getMod('lang'));
                     card.setMod('lang', this.getMod('lang'));
                     currentLink.delMod('current').delMod('disabled');
                     currentLink = this.setMod('current', 'yes').setMod('disabled', 'yes');
