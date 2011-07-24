@@ -1,0 +1,200 @@
+block b-info {
+
+    content: [
+        {
+            elem: 'logo',
+            content: {
+                block: 'b-image',
+                url: 'blocks/b-image/b-image__yandex_lang_' + this.ctx.lang + '.png'
+            }
+        },
+        {
+            elem: 'text',
+            lang: this.ctx.lang,
+            info: this.ctx.info
+        }
+    ]
+
+
+    elem text {
+        cls: 'vcard',
+        content: [
+            {
+                elem: 'title',
+                content: [
+                    {
+                        elem: 'name',
+                        content: this.ctx.info.name
+                    },
+                    {
+                        elem: 'position',
+                        content: this.ctx.info.position
+                    }
+                ]
+            },
+            {
+                elem: 'company',
+                content: [
+                    {
+                        elem: 'address',
+                        cls: 'adr',
+                        content: [
+                            (this.ctx.lang == 'ru')
+                                ? [
+                                    { tag: 'span', cls: 'country-name', content: this.ctx.info.company.country },
+                                    ', ',
+                                    { tag: 'span', cls: 'locality', content: this.ctx.info.company.locality },
+                                    ', ',
+                                    { tag: 'span', cls: 'postal-code', content: this.ctx.info.company.zip }
+                                ]
+                                : [
+                                    { tag: 'span', cls: 'locality', content: this.ctx.info.company.locality },
+                                    ' ',
+                                    { tag: 'span', cls: 'postal-code', content: this.ctx.info.company.zip },
+                                    ', ',
+                                    { tag: 'span', cls: 'country-name', content: this.ctx.info.company.country }
+                                ],
+                            { tag: 'br' },
+                            {
+                                tag: 'span',
+                                cls: 'street-address',
+                                content: this.ctx.info.company.address
+                            },
+                            { tag: 'br' }
+                        ]
+                    },
+
+                    this.ctx.info.company.phone ? [
+                            {
+                                tag: 'span',
+                                cls: 'tel',
+                                content: [
+                                    {
+                                        tag: 'abbr',
+                                        cls: 'type',
+                                        attrs: { title: 'work' },
+                                        content: (this.ctx.lang == 'ru') ? 'тел.:' : 'tel.'
+                                    },
+                                    ' ',
+                                    {
+                                        tag: 'span',
+                                        cls: 'value',
+                                        content: this.ctx.info.company.phone
+                                    },
+                                    this.ctx.info.company['phone-add'] ?
+                                        ((this.ctx.lang == 'ru') ? ', доб. ' : ' ext. ') + this.ctx.info.company['phone-add']
+                                        : ''
+                                ]
+                            },
+                            { tag: 'br' }
+                        ]: '',
+
+                    this.ctx.info.person.cellular ? [
+                            {
+                                tag: 'span',
+                                cls: 'tel',
+                                content: [
+                                    {
+                                        tag: 'abbr',
+                                        cls: 'type',
+                                        attrs: { title: 'cell' },
+                                        content: (this.ctx.lang == 'ru') ? 'моб.:' : 'cel.'
+                                    },
+                                    ' ',
+                                    {
+                                        tag: 'span',
+                                        cls: 'value',
+                                        content: this.ctx.info.person.cellular
+                                    }
+                                ]
+                            },
+                            { tag: 'br' }
+                        ]: '',
+
+                    this.ctx.info.company.fax ? [
+                            {
+                                tag: 'span',
+                                cls: 'tel',
+                                content: [
+                                    {
+                                        tag: 'abbr',
+                                        cls: 'type',
+                                        attrs: { title: 'fax' },
+                                        content: (this.ctx.lang == 'ru') ? 'факс:' : 'fax'
+                                    },
+                                    ' ',
+                                    {
+                                        tag: 'span',
+                                        cls: 'value',
+                                        content: this.ctx.info.company.fax
+                                    }
+                                ]
+                            },
+                            { tag: 'br' }
+                        ] : '',
+
+                    this.ctx.info.company.site ? {
+                            tag: 'a',
+                            cls: 'tel',
+                            attrs: { href: 'http://' + this.ctx.info.company.site + '/' },
+                            content: this.ctx.info.company.site
+                        } : ''
+                ]
+            },
+            {
+                elem: 'person',
+                content: [
+                    this.ctx.info.person.email ? [{ elem: 'email', content: this.ctx.info.person.email }, { tag: 'br' }] : '',
+                    this.ctx.info.person.github ? [{ elem: 'github', content: this.ctx.info.person.github }, { tag: 'br' }] : '',
+                    this.ctx.info.person.skype ? [{ elem: 'skype', lang: this.ctx.lang, content: this.ctx.info.person.skype }] : ''
+                ]
+            }
+        ]
+    }
+
+    elem name {
+        tag: 'h1',
+        cls: 'fn'
+    }
+
+    elem position {
+        tag: 'strong',
+        cls: 'role'
+    }
+
+    elem company, tag: 'p'
+
+    elem person, tag: 'p'
+
+    elem address {
+        tag: 'span',
+        cls: 'adr'
+    }
+
+    elem email {
+        tag: 'a',
+        cls: 'email',
+        attrs: { href: 'mailto:' + this.ctx.content },
+        content: this.ctx.content
+    }
+
+    elem github {
+        tag: 'a',
+        cls: 'github',
+        attrs: { href: 'https://github.com/' + this.ctx.content },
+        content: 'github.com/' + this.ctx.content
+    }
+
+    elem skype {
+        tag: 'span',
+        content: [
+            (this.ctx.lang == 'ru') ? 'skype: ' : 'skype ',
+            {
+                tag: 'a',
+                attrs: { href: 'skype:' + this.ctx.content + '?chat' },
+                content: this.ctx.content
+            }
+        ]
+    }
+
+}

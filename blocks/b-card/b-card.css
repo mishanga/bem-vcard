@@ -1,0 +1,46 @@
+.b-card
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 560px;
+    height: 320px;
+    margin-top: -160px;
+    margin-left: -280px;
+}
+
+body .b-card__side
+{
+    display: none;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.b-card_lang_ru .b-card__side_lang_ru,
+.b-card_lang_en .b-card__side_lang_en
+{
+    display: block;
+}
+
+.b-card__switch
+{
+    position: absolute;
+    z-index: 10;
+    top: 310px;
+    left: 10px;
+}
+
+.b-card__switch .b-link
+{
+    margin-right: 0.5em;
+}
+
+.b-card_lang_ru .b-link_lang_ru,
+.b-card_lang_en .b-link_lang_en
+{
+    display: none;
+}

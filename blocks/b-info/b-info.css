@@ -1,12 +1,27 @@
 .b-info
 {
+    font-size: 12px;
+
     position: relative;
+
+    line-height: 1.3;
+}
+
+.b-info a
+{
+    text-decoration: none;
+}
+
+.b-info a:hover
+{
+    color: #f00;
+    text-decoration: underline;
 }
 
 .b-info__logo
 {
     position: absolute;
-    top: 125px;
+    top: 123px;
     left: 27px;
 }
 
@@ -25,9 +40,9 @@
     width: 300px;
 }
 
-.b-info__person
+.b-info__title
 {
-    height: 100px;
+    height: 98px;
     margin-bottom: 10px;
 }
 
@@ -36,7 +51,7 @@
     font-size: 25px;
 
     position: relative;
-    left: -0.03em;
+    left: -0.04em;
 
     margin: 0;
 
@@ -52,42 +67,24 @@
     font-weight: normal;
 }
 
-.b-info__address
+.b-info__person,
+.b-info__company
 {
-    font-size: 12px;
-    line-height: 1.3;
-
     margin: 0 0 10px;
 }
 
-.b-info abbr
+.b-info__company abbr
 {
     border: none;
 }
 
-.b-info a
+.b-info__company a
 {
     color: #000;
-    text-decoration: none;
 }
 
-.b-info__links
-{
-    font-size: 0.8em;
-    line-height: 1.5;
-
-    margin: 0;
-}
-
-.b-info__links,
-.b-info__links a
+.b-info__person a
 {
     color: #2879ac;
 }
 
-.b-info__address a:hover,
-.b-info__links a:hover
-{
-    color: #f00;
-    text-decoration: underline;
-}

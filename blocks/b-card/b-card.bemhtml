@@ -1,0 +1,34 @@
+block b-card {
+
+    js: { langs: this.ctx.langs }
+
+    content: [
+        {
+            elem: 'switch',
+            langs: this.ctx.langs
+        },
+        this.ctx.content
+    ]
+
+    elem switch {
+        content: {
+
+            var c = [];
+
+            for(var i = this.ctx.langs.length; i--;) c.push({
+                block: 'b-link',
+                mods: {
+                    lang: this.ctx.langs[i],
+                    pseudo: 'yes'
+                },
+                js: true,
+                content: this.ctx.langs[i]
+            });
+
+            return c;
+
+        }
+
+    }
+
+}

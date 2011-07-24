@@ -1,11 +1,21 @@
-block b-card {
+block b-card-layout {
+
+    mix: [{
+        block: 'b-card',
+        elem: 'side',
+        mods: { lang: this.ctx.lang }
+    }]
 
     content: [
         {
             elem: 'left',
             content: {
                 elem: 'text',
-                content: this.ctx.content
+                content: {
+                    block: 'b-info',
+                    lang: this.ctx.lang,
+                    info: this.ctx.info
+                }
             }
         },
         { elem: 'top', tag: 'i', content: { elem: 'arrow', content: { elem: 'shape' } } },

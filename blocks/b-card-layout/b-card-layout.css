@@ -1,23 +1,20 @@
-.b-card
+.b-card-layout
 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    position: relative;
 
     width: 560px;
     height: 320px;
-    margin: -160px 0 0 -280px;
 }
 
-.b-card__left,
-.b-card__top,
-.b-card__bottom
+.b-card-layout__left,
+.b-card-layout__top,
+.b-card-layout__bottom
 {
     position: absolute;
     overflow: hidden;
 }
 
-.b-card__left
+.b-card-layout__left
 {
     z-index: 2;
 
@@ -27,7 +24,7 @@
     background: #eee;
 }
 
-.b-card__text
+.b-card-layout__text
 {
     position: relative;
     top: 10px;
@@ -36,7 +33,6 @@
     width: 465px;
     height: 300px;
 
-    color: #333;
     background: #fff;
 
     -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
@@ -44,8 +40,8 @@
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
-.b-card__top,
-.b-card__bottom
+.b-card-layout__top,
+.b-card-layout__bottom
 {
     left: 475px;
 
@@ -56,7 +52,7 @@
     background: #eee;
 }
 
-.b-card__bottom
+.b-card-layout__bottom
 {
     z-index: 1;
     top: 100%;
@@ -65,7 +61,7 @@
 
 }
 
-.b-card__arrow
+.b-card-layout__arrow
 {
     position: absolute;
     left: 0;
@@ -74,7 +70,7 @@
     height: 0px;
 }
 
-.b-card__arrow .b-card__shape
+.b-card-layout__arrow .b-card-layout__shape
 {
     position: absolute;
     left: 0;
@@ -88,7 +84,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.b-card__top .b-card__arrow
+.b-card-layout__top .b-card-layout__arrow
 {
     -webkit-transform: skew(26.3deg);
     -moz-transform: skew(26.3deg);
@@ -97,13 +93,13 @@
     transform: skew(26.3deg);
 }
 
-.b-card__top .b-card__arrow,
-.b-card__top .b-card__arrow .b-card__shape
+.b-card-layout__top .b-card-layout__arrow,
+.b-card-layout__top .b-card-layout__arrow .b-card-layout__shape
 {
     bottom: 0;
 }
 
-.b-card__bottom .b-card__arrow
+.b-card-layout__bottom .b-card-layout__arrow
 {
     -webkit-transform: skew(-26.3deg);
     -moz-transform: skew(-26.3deg);
@@ -112,8 +108,8 @@
     transform: skew(-26.3deg);
 }
 
-.b-card__bottom .b-card__arrow,
-.b-card__bottom .b-card__arrow .b-card__shape
+.b-card-layout__bottom .b-card-layout__arrow,
+.b-card-layout__bottom .b-card-layout__arrow .b-card-layout__shape
 {
     top: 0;
 }

@@ -5,6 +5,7 @@ block b-page {
             this._mode = '',
             this.ctx = {
                 tag: 'html',
+                attrs : { class: 'i-ua_js_no i-ua_css_standart'},
                 content: [
                     {
                         elem: 'head',
@@ -22,17 +23,22 @@ block b-page {
                                 url: this.ctx.favicon
                             } : '',
                             this.ctx.meta,
+                            {
+                                block: 'i-ua'
+                            },
                             this.ctx.head
                         ]
                     },
                     {
                         elem: 'body',
                         mix: [
-                            this.ctx
+                            this.ctx,
+                            {
+                                block: 'i-font',
+                                mods: { face: 'textbook-new' }
+                            }
                         ],
-                        content: [
-                            this.ctx.content
-                        ]
+                        content: this.ctx.content
                     }
                 ]
             }) this.apply();
@@ -53,11 +59,33 @@ block b-page {
 
     elem css {
         bem: false,
-        tag: 'style'
+        tag: 'style',
+        default, this.ctx.hasOwnProperty('ie'), !this.ctx._ieCommented: {
+            var hideRule = !this.ctx.ie ?
+                    ['gt IE 7', '<!-->', '<!--'] :
+                    [this.ctx.ie, '', ''];
+            local(
+                this._mode = '',
+                this.ctx._ieCommented = true,
+                this.ctx = [
+                    '<!--[if ' + hideRule[0] + ']>',
+                    hideRule[1],
+                    this.ctx,
+                    hideRule[2],
+                    '<![endif]-->'
+                ]
+            ) this.apply();
+        },
         this.ctx.url {
             tag: 'link',
             attrs: { rel: 'stylesheet', href: this.ctx.url }
         }
+    }
+
+    elem js {
+        bem: false,
+        tag: 'script',
+        attrs, this.ctx.url: { src: this.ctx.url }
     }
 
     elem favicon {

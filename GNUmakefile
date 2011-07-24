@@ -16,7 +16,7 @@ BEM_CREATE=bem create block \
 		-t $1 \
 		$(*F)
 
-%.html: %.bemhtml.js %.css
+%.html: %.bemhtml.js %.css %.js
 	rm -f $@
 	$(call BEM_CREATE,bem-bl/blocks-desktop/i-bem/bem/techs/html.js)
 
@@ -32,8 +32,12 @@ BEM_CREATE=bem create block \
 .PRECIOUS: %.css
 %.css: %.deps.js
 	$(call BEM_BUILD,bem/techs/css.js)
-#	yui-compressor $@ -o $@
-#	gzip -cf9 $@ >$@.gz
+	yui-compressor $@ | gzip -cf9 >$@.gz
+
+.PRECIOUS: %.js
+%.js: %.deps.js
+	$(call BEM_BUILD,js)
+	yui-compressor $@ | gzip -cf9 >$@.gz
 
 DO_GIT=echo -- git $1 $2; \
 	if [ -d $2 ]; \
