@@ -36,11 +36,16 @@ body .b-card__side
 
 .b-card__switch .b-link
 {
+    display: none;
+
+    float: left;
+
     margin-right: 0.5em;
+
+    line-height: 1;
 }
 
-.b-card_lang_ru .b-link_lang_ru,
-.b-card_lang_en .b-link_lang_en
+.b-card__switch .b-link_js_inited
 {
-    display: none;
+    display: block;
 }

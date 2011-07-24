@@ -15,7 +15,7 @@ block b-card {
 
             var c = [];
 
-            for(var i = this.ctx.langs.length; i--;) c.push({
+            for(var i = this.ctx.langs.length; i--;) c.unshift({
                 block: 'b-link',
                 mods: {
                     lang: this.ctx.langs[i],

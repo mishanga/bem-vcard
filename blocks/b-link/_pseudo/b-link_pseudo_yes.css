@@ -1,0 +1,9 @@
+.b-link_pseudo_yes
+{
+    color: #2879ac;
+}
+
+.b-link_pseudo_yes:hover
+{
+    color: #f00 !important;
+}
