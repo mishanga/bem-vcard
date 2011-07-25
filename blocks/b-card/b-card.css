@@ -8,29 +8,44 @@
     height: 320px;
     margin-top: -160px;
     margin-left: -280px;
+
+    -webkit-perspective: 1000;
 }
 
 body .b-card__side
 {
-    display: none;
-
     position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
 }
 
-.b-card_lang_ru .b-card__side_lang_ru,
-.b-card_lang_en .b-card__side_lang_en
+.b-card__side
 {
-    display: block;
+    top: 0;
+    left: 0;
+
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: rotateX(-180deg);
+}
+
+.b-card__side_state_closed
+{
+    -webkit-transition: all .4s ease-in-out;
+    -webkit-transform: rotateX(180deg);
+}
+
+.b-card__side_state_opened
+{
+    z-index: 1;
+
+    -webkit-transition: all .4s ease-in-out;
+    -webkit-transform: rotateX(0);
 }
 
 .b-card__switch
 {
     position: absolute;
     z-index: 10;
-    top: 310px;
+    top: 318px;
     left: 10px;
 }
 

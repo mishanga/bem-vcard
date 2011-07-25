@@ -3,7 +3,10 @@ block b-card-layout {
     mix: [{
         block: 'b-card',
         elem: 'side',
-        mods: { lang: this.ctx.lang }
+        mods: {
+            lang: this.ctx.lang,
+            state: (this.ctx.lang == this.i18n.lang) ? 'opened' : ''
+        }
     }]
 
     content: [

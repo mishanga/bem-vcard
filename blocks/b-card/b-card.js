@@ -6,6 +6,7 @@ BEM.DOM.decl({ name: 'b-card' }, {
 
             var card = this,
                 currentLink,
+                sides = {}, // текущие состояния сторон
                 titles = {};
 
             titles[card.getMod('lang')] = document.title;
@@ -18,6 +19,19 @@ BEM.DOM.decl({ name: 'b-card' }, {
                     var lang = this.getMod('lang');
 
                     card.setMod('lang', lang);
+
+                    // сбрасываем состояние для стороны, закрытой в прошлой итерации
+                    sides.closed && card.delMod(sides.closed, 'state');
+
+                    this.afterCurrentEvent(function() {
+                        // закрываем открытую сторону
+                        sides.closed = sides.opened || card.elem('side', 'state', 'opened');
+                        card.setMod(sides.closed, 'state', 'closed');
+
+                        // открываем нужную сторону
+                        sides.opened = card.elem('side', 'lang', lang);
+                        card.setMod(sides.opened, 'state', 'opened');
+                    });
 
                     currentLink.delMod('current').delMod('disabled');
                     currentLink = this.setMod('current', 'yes').setMod('disabled', 'yes');

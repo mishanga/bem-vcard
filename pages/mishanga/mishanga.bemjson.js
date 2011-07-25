@@ -7,6 +7,7 @@
         { elem: 'js', url: '//yandex.st/jquery/1.6.2/jquery.min.js' },
         { elem: 'js', url: 'mishanga.js' }
     ],
+    i18n: { langs: ['ru', 'en'], lang: 'ru' },
     content: {
         block: 'b-card',
         mods: { lang: 'ru' },
