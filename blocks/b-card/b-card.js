@@ -5,7 +5,8 @@ BEM.DOM.decl({ name: 'b-card' }, {
         js : function() {
 
             var card = this,
-                currentLink;
+                currentLink,
+                cache = {};
 
             $.each(this.findBlocksInside('switch', 'b-link'), function() {
 
@@ -13,17 +14,21 @@ BEM.DOM.decl({ name: 'b-card' }, {
                     (currentLink = this.setMod('current', 'yes').setMod('disabled', 'yes'));
 
                 this.on('click', function() {
-                    card.setMod('lang', this.getMod('lang'));
+                    var lang = this.getMod('lang');
+
+                    card.setMod('lang', lang);
 
                     currentLink.delMod('current').delMod('disabled');
                     currentLink = this.setMod('current', 'yes').setMod('disabled', 'yes');
 
-                    var info = card.findBlockOn(
-                            card.findElem('side', 'lang', card.getMod('lang')),
-                            'b-card-layout')
-                                .findBlockInside('b-info');
-
-                    document.title = info.elem('name').text() + ' — ' + info.elem('email').text();
+                    if(!cache[lang]) {
+                        var info = card.findBlockOn(
+                                card.findElem('side', 'lang', lang),
+                                'b-card-layout')
+                                    .findBlockInside('b-info');
+                        cache[lang] = info.elem('name').text() + ' — ' + info.elem('email').text();
+                    }
+                    document.title = cache[lang];
                 })
 
             });

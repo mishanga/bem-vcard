@@ -4,7 +4,7 @@
     favicon: '//yandex.ru/favicon.ico',
     head: [
         { elem: 'css', url: 'mishanga.css' },
-        { elem : 'js', url: '//yandex.st/jquery/1.6.2/jquery.min.js' },
+        { elem: 'js', url: '//yandex.st/jquery/1.6.2/jquery.min.js' },
         { elem: 'js', url: 'mishanga.js' }
     ],
     content: {
