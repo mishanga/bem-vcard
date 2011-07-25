@@ -10,7 +10,6 @@
     content: {
         block: 'b-card',
         mods: { lang: 'ru' },
-        langs: ['ru', 'en'],
         content: [
             {
                 block: 'b-card-layout',

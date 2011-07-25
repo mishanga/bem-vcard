@@ -12,8 +12,7 @@ BEM.DOM.decl({ name: 'b-card' }, {
 
             $.each(this.findBlocksInside('switch', 'b-link'), function() {
 
-                card.getMod('lang') == this.getMod('lang') &&
-                    (currentLink = this.setMod('current', 'yes').setMod('disabled', 'yes'));
+                card.getMod('lang') == this.getMod('lang') && (currentLink = this);
 
                 this.on('click', function() {
                     var lang = this.getMod('lang');

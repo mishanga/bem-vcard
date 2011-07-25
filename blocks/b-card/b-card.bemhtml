@@ -1,12 +1,9 @@
 block b-card {
 
-    js: { langs: this.ctx.langs }
+    js: true
 
     content: [
-        {
-            elem: 'switch',
-            langs: this.ctx.langs
-        },
+        { elem: 'switch' },
         this.ctx.content
     ]
 
@@ -15,14 +12,16 @@ block b-card {
 
             var c = [];
 
-            for(var i = this.ctx.langs.length; i--;) c.unshift({
+            for(var i = this.i18n.langs.length; i--;) c.unshift({
                 block: 'b-link',
                 mods: {
-                    lang: this.ctx.langs[i],
-                    pseudo: 'yes'
+                    lang: this.i18n.langs[i],
+                    pseudo: 'yes',
+                    disabled: this.i18n.langs[i] == this.i18n.lang ? 'yes' : '',
+                    current: this.i18n.langs[i] == this.i18n.lang ? 'yes' : ''
                 },
                 js: true,
-                content: this.ctx.langs[i]
+                content: this.i18n.langs[i]
             });
 
             return c;

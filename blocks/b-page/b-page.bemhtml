@@ -3,6 +3,7 @@ block b-page {
         this._buf.push('<!DOCTYPE html>');
         local(
             this._mode = '',
+            this.i18n = { langs: ['ru', 'en'], lang: 'ru' },
             this.ctx = {
                 tag: 'html',
                 attrs : { class: 'i-ua_js_no i-ua_css_standart'},
