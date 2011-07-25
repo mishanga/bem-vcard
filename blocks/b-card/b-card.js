@@ -6,7 +6,9 @@ BEM.DOM.decl({ name: 'b-card' }, {
 
             var card = this,
                 currentLink,
-                cache = {};
+                titles = {};
+
+            titles[card.getMod('lang')] = document.title;
 
             $.each(this.findBlocksInside('switch', 'b-link'), function() {
 
@@ -21,14 +23,14 @@ BEM.DOM.decl({ name: 'b-card' }, {
                     currentLink.delMod('current').delMod('disabled');
                     currentLink = this.setMod('current', 'yes').setMod('disabled', 'yes');
 
-                    if(!cache[lang]) {
+                    if(!titles[lang]) {
                         var info = card.findBlockOn(
                                 card.findElem('side', 'lang', lang),
                                 'b-card-layout')
                                     .findBlockInside('b-info');
-                        cache[lang] = info.elem('name').text() + ' — ' + info.elem('email').text();
+                        titles[lang] = info.elem('name').text() + ' — ' + info.elem('email').text();
                     }
-                    document.title = cache[lang];
+                    document.title = titles[lang];
                 })
 
             });
