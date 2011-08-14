@@ -1,4 +1,5 @@
 bem-bl
 pages/*/*.css*
 pages/*/*.js*
+!*.bemjson.js
 pages/*/*.html
