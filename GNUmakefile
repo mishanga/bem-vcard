@@ -39,7 +39,7 @@ BEM_CREATE=bem create block \
 	$(call BEM_BUILD,js)
 	yui-compressor $@ | gzip -cf9 >$@.gz
 
-DO_GIT=echo -- git $1 $2; \
+DO_GIT=@echo -- git $1 $2; \
 	if [ -d $2 ]; \
 		then \
 			cd $2 && git pull origin master; \
