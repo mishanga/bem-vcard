@@ -1,4 +1,5 @@
-.i-ua_js_yes .b-link_current_yes
+.i-ua_js_yes .b-link_current_yes,
+.i-ua_js_yes .b-link_current_yes .b-link__inner
 {
     cursor: default;
     color: #000 !important;

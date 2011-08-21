@@ -54,9 +54,13 @@ body .b-card__side
 {
     display: none;
 
-    float: left;
-
     margin-right: 0.5em;
+}
+
+.b-card__switch .b-link,
+.b-card__switch .b-link__inner
+{
+    float: left;
 
     line-height: 1;
 }
