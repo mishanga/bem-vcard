@@ -26,10 +26,7 @@ block b-card {
                     block: 'b-link',
                     mods: mods,
                     js: true,
-                    content: {
-                        elem: 'inner',
-                        content: this.i18n.langs[i]
-                    }
+                    content: this.i18n.langs[i]
                 });
             }
 
