@@ -18,10 +18,10 @@ BEM_CREATE=bem create block \
 
 %.html: %.bemhtml.js %.css %.js
 	rm -f $@
-	$(call BEM_CREATE,bem-bl/blocks-desktop/i-bem/bem/techs/html.js)
+	$(call BEM_CREATE,bem-bl/blocks-common/i-bem/bem/techs/html.js)
 
 %.bemhtml.js: %.deps.js
-	$(call BEM_BUILD,bem-bl/blocks-desktop/i-bem/bem/techs/bemhtml.js)
+	$(call BEM_BUILD,bem-bl/blocks-common/i-bem/bem/techs/bemhtml.js)
 
 %.deps.js: %.bemdecl.js
 	$(call BEM_BUILD,deps.js)
