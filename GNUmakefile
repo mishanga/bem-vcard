@@ -32,12 +32,12 @@ BEM_CREATE=bem create block \
 .PRECIOUS: %.css
 %.css: %.deps.js
 	$(call BEM_BUILD,bem/techs/css.js)
-	yui-compressor $@ | gzip -cf9 >$@.gz
+	csso $@ | gzip -cf9 >$@.gz
 
 .PRECIOUS: %.js
 %.js: %.deps.js
 	$(call BEM_BUILD,js)
-	yui-compressor $@ | gzip -cf9 >$@.gz
+	uglifyjs $@ | gzip -cf9 >$@.gz
 
 DO_GIT=@echo -- git $1 $2; \
 	if [ -d $2 ]; \
