@@ -17,7 +17,7 @@
                 lang: 'ru',
                 info: {
                     name: 'Михаил Трошев',
-                    position: 'Разработчик интерфейсов',
+                    position: 'Руководитель группы разработки<br>поисковых интерфейсов',
                     company: {
                         country: 'Россия',
                         locality: 'Москва',
@@ -41,7 +41,7 @@
                 lang: 'en',
                 info: {
                     name: 'Mikhail Troshev',
-                    position: 'UI developer',
+                    position: 'Team lead of search interfaces<br>development group',
                     company: {
                         country: 'Russia',
                         locality: 'Moscow',
