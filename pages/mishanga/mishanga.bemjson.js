@@ -4,7 +4,8 @@
     favicon: '/favicon.ico',
     head: [
         { elem: 'css', url: 'mishanga.css' },
-        { elem: 'js', url: '//yandex.st/jquery/1.6.2/jquery.min.js' },
+        { elem: 'css', url: 'mishanga.ie.css', ie: 'lte IE 7' },
+        { block: 'i-jquery', elem: 'core' },
         { elem: 'js', url: 'mishanga.js' }
     ],
     i18n: { langs: ['ru', 'en'], lang: 'ru' },

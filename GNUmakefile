@@ -34,6 +34,11 @@ BEM_CREATE=bem create block \
 	$(call BEM_BUILD,bem/techs/css.js)
 	csso $@ | gzip -cf9 >$@.gz
 
+.PRECIOUS: %.ie.css
+%.ie.css: %.deps.js
+	$(call BEM_BUILD,bem/techs/ie.css.js)
+	csso $@ | gzip -cf9 >$@.gz
+
 .PRECIOUS: %.js
 %.js: %.deps.js
 	$(call BEM_BUILD,js)
