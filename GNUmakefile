@@ -2,7 +2,9 @@ all:: bem-bl
 all:: node_modules
 all:: $(patsubst %.bemjson.js,%.html,$(wildcard pages/*/*.bemjson.js))
 
-BEM_BUILD=bem build \
+BEM ?= $(shell pwd)/node_modules/.bin/bem
+
+BEM_BUILD = $(BEM) build \
 	-l bem-bl/blocks-common/ \
 	-l bem-bl/blocks-desktop/ \
 	-l blocks/ \
@@ -12,10 +14,10 @@ BEM_BUILD=bem build \
 	-o $(@D) \
 	-n $(*F)
 
-BEM_CREATE=bem create block \
-		-l pages \
-		-t $1 \
-		$(*F)
+BEM_CREATE = $(BEM) create block \
+	-l pages \
+	-t $1 \
+	$(*F)
 
 %.html: %.bemhtml.js %.css %.js
 	rm -f $@
