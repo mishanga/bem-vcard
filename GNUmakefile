@@ -1,4 +1,5 @@
 all:: bem-bl
+all:: node_modules
 all:: $(patsubst %.bemjson.js,%.html,$(wildcard pages/*/*.bemjson.js))
 
 BEM_BUILD=bem build \
@@ -54,5 +55,10 @@ DO_GIT=echo -- git $1 $2; \
 
 bem-bl:
 	$(call DO_GIT,git://github.com/bem/bem-bl.git,$@)
+
+node_modules:
+	@npm cache clean
+	@npm prune
+	@npm update
 
 .PHONY: all
