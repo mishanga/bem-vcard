@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'TextbookNew';
+    src: local('TextbookNew'),
+    src: url('blocks/i-font/_face/i-font_face_textbook-new.eot');
+}
+
+.i-font_face_textbook-new {
+    font-family: 'TextbookNew', Arial, sans-serif !important;
+}
