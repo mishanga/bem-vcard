@@ -31,12 +31,12 @@ BEM_CREATE=bem create block \
 
 .PRECIOUS: %.css
 %.css: %.deps.js
-	$(call BEM_BUILD,bem/techs/css.js)
+	$(call BEM_BUILD,.bem/techs/css.js)
 	csso $@ | gzip -cf9 >$@.gz
 
 .PRECIOUS: %.ie.css
 %.ie.css: %.deps.js
-	$(call BEM_BUILD,bem/techs/ie.css.js)
+	$(call BEM_BUILD,.bem/techs/ie.css.js)
 	csso $@ | gzip -cf9 >$@.gz
 
 .PRECIOUS: %.js
