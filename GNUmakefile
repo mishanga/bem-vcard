@@ -1,7 +1,10 @@
 all:: bem-bl
+all:: node_modules
 all:: $(patsubst %.bemjson.js,%.html,$(wildcard pages/*/*.bemjson.js))
 
-BEM_BUILD=bem build \
+BEM ?= $(shell pwd)/node_modules/.bin/bem
+
+BEM_BUILD = $(BEM) build \
 	-l bem-bl/blocks-common/ \
 	-l bem-bl/blocks-desktop/ \
 	-l blocks/ \
@@ -11,10 +14,10 @@ BEM_BUILD=bem build \
 	-o $(@D) \
 	-n $(*F)
 
-BEM_CREATE=bem create block \
-		-l pages \
-		-t $1 \
-		$(*F)
+BEM_CREATE = $(BEM) create block \
+	-l pages \
+	-t $1 \
+	$(*F)
 
 %.html: %.bemhtml.js %.css %.js
 	rm -f $@
@@ -31,12 +34,12 @@ BEM_CREATE=bem create block \
 
 .PRECIOUS: %.css
 %.css: %.deps.js
-	$(call BEM_BUILD,bem/techs/css.js)
+	$(call BEM_BUILD,.bem/techs/css.js)
 	csso $@ | gzip -cf9 >$@.gz
 
 .PRECIOUS: %.ie.css
 %.ie.css: %.deps.js
-	$(call BEM_BUILD,bem/techs/ie.css.js)
+	$(call BEM_BUILD,.bem/techs/ie.css.js)
 	csso $@ | gzip -cf9 >$@.gz
 
 .PRECIOUS: %.js
@@ -44,15 +47,20 @@ BEM_CREATE=bem create block \
 	$(call BEM_BUILD,js)
 	uglifyjs $@ | gzip -cf9 >$@.gz
 
-DO_GIT=@echo -- git $1 $2; \
+DO_GIT=echo -- git $1 $2; \
 	if [ -d $2 ]; \
 		then \
 			cd $2 && git pull origin master; \
 		else \
-			git clone $1.git $2; \
+			git clone $1 $2; \
 	fi
 
 bem-bl:
 	$(call DO_GIT,git://github.com/bem/bem-bl.git,$@)
+
+node_modules:
+	@npm cache clean
+	@npm prune
+	@npm update
 
 .PHONY: all
