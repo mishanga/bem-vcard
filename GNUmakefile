@@ -64,4 +64,8 @@ node_modules:
 	@npm prune
 	@npm update
 
+.PHONY: server
+server: node_modules
+	$(PREFIX)/bem server
+
 .PHONY: all
