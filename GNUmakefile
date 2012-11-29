@@ -56,7 +56,7 @@ DO_GIT=echo -- git $1 $2; \
 	fi
 
 bem-bl:
-	$(call DO_GIT,git://github.com/bem/bem-bl.git,$@)
+	$(call DO_GIT,git://github.com/bem/bem-bl.git --branch 0.3,$@)
 
 node_modules:
 	@npm cache clean
