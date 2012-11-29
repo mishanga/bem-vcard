@@ -68,4 +68,10 @@ node_modules:
 server: node_modules
 	$(PREFIX)/bem server
 
+.PHONY: clean
+clean:
+	-rm -rf bem-bl node_modules
+	git ls-files --others --ignored --exclude-standard | xargs -I {} rm -f {}
+
+
 .PHONY: all
