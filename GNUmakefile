@@ -2,7 +2,8 @@ all:: bem-bl
 all:: node_modules
 all:: $(patsubst %.bemjson.js,%.html,$(wildcard pages/*/*.bemjson.js))
 
-BEM ?= $(shell pwd)/node_modules/.bin/bem
+PREFIX = $(shell pwd)/node_modules/.bin
+BEM ?= $(PREFIX)/bem
 
 BEM_BUILD = $(BEM) build \
 	-l bem-bl/blocks-common/ \
@@ -35,17 +36,17 @@ BEM_CREATE = $(BEM) create block \
 .PRECIOUS: %.css
 %.css: %.deps.js
 	$(call BEM_BUILD,.bem/techs/css.js)
-	csso $@ | gzip -cf9 >$@.gz
+	$(PREFIX)/csso $@ | gzip -cf9 >$@.gz
 
 .PRECIOUS: %.ie.css
 %.ie.css: %.deps.js
 	$(call BEM_BUILD,.bem/techs/ie.css.js)
-	csso $@ | gzip -cf9 >$@.gz
+	$(PREFIX)/csso $@ | gzip -cf9 >$@.gz
 
 .PRECIOUS: %.js
 %.js: %.deps.js
 	$(call BEM_BUILD,js)
-	uglifyjs $@ | gzip -cf9 >$@.gz
+	$(PREFIX)/uglifyjs $@ | gzip -cf9 >$@.gz
 
 DO_GIT=echo -- git $1 $2; \
 	if [ -d $2 ]; \
