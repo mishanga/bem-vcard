@@ -2,7 +2,8 @@ all:: bem-bl
 all:: node_modules
 all:: $(patsubst %.bemjson.js,%.html,$(wildcard pages/*/*.bemjson.js))
 
-BEM ?= $(shell pwd)/node_modules/.bin/bem
+PREFIX = $(shell pwd)/node_modules/.bin
+BEM ?= $(PREFIX)/bem
 
 BEM_BUILD = $(BEM) build \
 	-l bem-bl/blocks-common/ \
@@ -35,17 +36,17 @@ BEM_CREATE = $(BEM) create block \
 .PRECIOUS: %.css
 %.css: %.deps.js
 	$(call BEM_BUILD,.bem/techs/css.js)
-	csso $@ | gzip -cf9 >$@.gz
+	$(PREFIX)/csso $@ | gzip -cf9 >$@.gz
 
 .PRECIOUS: %.ie.css
 %.ie.css: %.deps.js
 	$(call BEM_BUILD,.bem/techs/ie.css.js)
-	csso $@ | gzip -cf9 >$@.gz
+	$(PREFIX)/csso $@ | gzip -cf9 >$@.gz
 
 .PRECIOUS: %.js
 %.js: %.deps.js
 	$(call BEM_BUILD,js)
-	uglifyjs $@ | gzip -cf9 >$@.gz
+	$(PREFIX)/uglifyjs $@ | gzip -cf9 >$@.gz
 
 DO_GIT=echo -- git $1 $2; \
 	if [ -d $2 ]; \
@@ -56,11 +57,21 @@ DO_GIT=echo -- git $1 $2; \
 	fi
 
 bem-bl:
-	$(call DO_GIT,git://github.com/bem/bem-bl.git,$@)
+	$(call DO_GIT,git://github.com/bem/bem-bl.git --branch 0.3,$@)
 
 node_modules:
 	@npm cache clean
 	@npm prune
 	@npm update
+
+.PHONY: server
+server: node_modules
+	$(PREFIX)/bem server
+
+.PHONY: clean
+clean:
+	-rm -rf bem-bl node_modules
+	git ls-files --others --ignored --exclude-standard | xargs -I {} rm -f {}
+
 
 .PHONY: all

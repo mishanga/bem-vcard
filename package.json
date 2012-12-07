@@ -10,7 +10,12 @@
     "node": "0.8 | 0.9"
   },
   "dependencies": {
-    "bem": "0.5.18"
+    "bem": "0.5.18",
+    "ometajs": "3.1.15",
+    "xjst": "0.3.14",
+    "inherit": "1.0.4",
+    "uglify-js": "2.2.1",
+    "csso": "1.3.6"
   },
   "devDependencies": {},
   "private": true
